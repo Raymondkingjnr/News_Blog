@@ -1,0 +1,60 @@
+.hero-sec {
+  background: url("../../assets//bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+  margin-top: 3rem;
+  position: relative;
+}
+.overlay {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  opacity: 1;
+}
+.hero-notes {
+  text-align: left;
+  position: absolute;
+  left: 5%;
+  letter-spacing: 1px;
+  line-height: 2.5rem;
+  z-index: 4;
+  width: 800px;
+  background: transparent;
+  color: #fff;
+  bottom: 20%;
+}
+.hero-notes h1 {
+  background: transparent;
+  font-family: "roboto";
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.hero-notes p {
+  background: transparent;
+  padding-top: 3rem;
+  font-family: "inter";
+  font-size: 18px;
+  font-weight: 500;
+  width: 600px;
+  line-height: 2rem;
+}
+
+@media screen and (max-width: 600px) {
+  .hero-notes {
+    width: 350px;
+  }
+  .hero-notes p {
+    font-size: 15px;
+    width: 350px;
+  }
+  .hero-notes h1 {
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,47 @@
+.head-links {
+  text-align: center;
+  width: 100%;
+  margin-top: 5rem;
+}
+.head-links h1 {
+  font-family: "roboto";
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.headlines-btn {
+  padding: 10px;
+  margin-top: 1rem;
+  border: transparent;
+  width: 120px;
+  cursor: pointer;
+  border-radius: 10px;
+  font-family: "inter";
+  background: #ffa500;
+}
+.blog-btn {
+  color: #000;
+  text-decoration: none;
+  list-style: none;
+  font-family: "inter";
+  font-weight: 600;
+  font-size: 18px;
+  text-transform: capitalize;
+  background: transparent;
+}
+.stories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  max-width: 1400px;
+  margin: 8rem auto;
+}
+
+@media screen and (max-width: 600px) {
+  .stories {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding-left: 1.2rem;
+  }
+}
