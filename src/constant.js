@@ -12,3 +12,18 @@ export const Links = [
     to: "blog",
   },
 ];
+
+export const footerlink = [
+  {
+    text: "Cookie Policy",
+  },
+  {
+    text: "Terms of Use",
+  },
+  {
+    text: "privacy Policy",
+  },
+  {
+    text: "Patner With Us",
+  },
+];

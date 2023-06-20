@@ -3,6 +3,7 @@ import axios from "axios";
 
 const initialState = {
   StoriesItems: [],
+  topNews: [],
   isLoading: true,
   query: "",
   page: 0,
@@ -25,6 +26,26 @@ export const getStories = createAsyncThunk(
       return { articles, totalPages };
     } catch (error) {
       return thunkAPI.rejectWithValue("Something went wrong");
+    }
+  }
+);
+
+export const HeadLines = createAsyncThunk(
+  "topnews/ Headlines",
+  async (name, thunkAPI) => {
+    const { getState } = thunkAPI;
+
+    console.log(getState);
+
+    try {
+      const resp = await axios.get(
+        "https://newsapi.org/v2/top-headlines?country=us&apiKey=aa15640c4b6149b4a67fc925aee56b21"
+      );
+      const { articles } = resp.data;
+
+      return { articles };
+    } catch (error) {
+      return thunkAPI.rejectWithValue("something went wrong");
     }
   }
 );
@@ -52,7 +73,18 @@ const storiesSlice = createSlice({
         state.totalResults = action.payload.totalPages;
       })
       .addCase(getStories.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message;
+      })
+      .addCase(HeadLines.pending, (state) => {
         state.isLoading = true;
+      })
+      .addCase(HeadLines.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.topNews = action.payload;
+      })
+      .addCase(HeadLines.rejected, (state, action) => {
+        state.isLoading = false;
         state.error = action.error.message;
       });
   },

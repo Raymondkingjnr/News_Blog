@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Links } from "../../constant";
 import { BiMenuAltRight } from "react-icons/bi";
+import { AiOutlineClose } from "react-icons/ai";
 import "./nav.css";
 function Nav() {
   const [openSideBar, setOpensideBar] = useState(false);
@@ -34,24 +35,30 @@ function Nav() {
         <div className="icon" onClick={() => setOpensideBar(true)}>
           <BiMenuAltRight />
         </div>
-        {openSideBar && (
-          <section className="sidebar slide-in-left ">
+
+        <section
+          className={`${openSideBar ? "sidebar show-sidebar" : "sidebar"} `}
+        >
+          <div className="close-icon" onClick={() => setOpensideBar(false)}>
+            <AiOutlineClose />
+          </div>
+          <main>
             <ul>
               {Links.map((link, index) => {
                 const { text, to } = link;
 
                 return (
                   <li className="sidebar-link" key={index}>
-                    <Link to={to}>{text}</Link>
+                    <Link to={to} onClick={() => setOpensideBar(false)}>
+                      {text}
+                    </Link>
                   </li>
                 );
               })}
-              <div className="icon-close" onClick={() => setOpensideBar(false)}>
-                king
-              </div>
             </ul>
-          </section>
-        )}
+            <button className="contact-smallscreen-btn">Contact us</button>
+          </main>
+        </section>
       </div>
     </nav>
   );

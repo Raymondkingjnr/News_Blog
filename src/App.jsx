@@ -7,15 +7,17 @@ import {
   getStories,
   updateQuryparameter,
   updatePage,
+  HeadLines,
 } from "./features/stories/storiesSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 function App() {
-  const { isLoading, StoriesItems } = useSelector((story) => story.stories);
+  const { StoriesItems, topNews } = useSelector((story) => story.stories);
 
   const dispatch = useDispatch();
 
   useEffect(() => {}, [StoriesItems]);
+  useEffect(() => {}, [topNews]);
 
   useEffect(() => {
     dispatch(updateQuryparameter("bitcoin"));
@@ -27,16 +29,12 @@ function App() {
 
   useEffect(() => {
     dispatch(getStories());
+    dispatch(HeadLines());
   }, []);
-
-  if (isLoading) {
-    return <div className="loading"></div>;
-  }
 
   return (
     <Router>
       <Nav />
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />

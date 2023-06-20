@@ -49,9 +49,26 @@ a {
   text-transform: capitalize;
 }
 
+@media screen and (min-width: 1200px) {
+  .headline-content {
+    width: 370px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .headline-content {
+    width: 100%;
+    margin-top: 1rem;
+  }
+  .headline-content img {
+    width: 100%;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .headline-content {
-    width: 350px;
+    max-width: 400px;
+    margin: auto;
   }
   .headline-content h4 {
     font-size: 15px;
@@ -60,5 +77,8 @@ a {
   .headline-content p {
     font-size: 13px;
     line-height: 1.5rem;
+  }
+  .headline-content img {
+    width: 100%;
   }
 }
