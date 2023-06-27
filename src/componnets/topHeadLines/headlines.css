@@ -1,7 +1,6 @@
 .head-links {
   text-align: center;
-  width: 100%;
-  margin-top: 10rem;
+  margin: 10rem auto;
   overflow-x: hidden;
 }
 .head-links h1 {
@@ -33,10 +32,11 @@
 }
 .stories {
   display: grid;
-  /* border: #000 3px solid; */
+  margin: 5rem auto;
+  max-width: 1400px;
+
   padding-left: 2rem;
-  margin-top: 5rem;
-  width: 100%;
+  padding-top: 2rem;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }

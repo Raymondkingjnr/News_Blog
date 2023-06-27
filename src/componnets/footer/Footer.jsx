@@ -10,7 +10,7 @@ function Footer() {
         <h2>Subscribe for new content</h2>
         <form className="footer_form">
           <h3>Email</h3>
-          <input type="text" placeholder="enter-mail" />
+          <input type="text" placeholder="Enter Email" />
           <button type="button">Subscribe</button>
         </form>
       </main>

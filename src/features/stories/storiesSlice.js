@@ -6,22 +6,24 @@ const initialState = {
   topNews: [],
   isLoading: true,
   query: "",
-  page: 0,
-  totalResults: 0,
+  page: 1,
+  pageSize: 9,
+  totalPages: 0,
+  error: "",
 };
 
 export const getStories = createAsyncThunk(
   "stories/ getstories",
   async (name, thunkAPI) => {
     const { getState } = thunkAPI;
-    const { query, page } = getState().stories;
+    const { page, query, pageSize } = getState().stories;
 
     try {
       const resp = await axios.get(
-        `https://newsapi.org/v2/everything?q=${query}&page=${page}&apiKey=aa15640c4b6149b4a67fc925aee56b21`
+        `https://newsapi.org/v2/everything?q=${query}&page=${page}&pageSize=${pageSize}&apiKey=aa15640c4b6149b4a67fc925aee56b21`
       );
       const { articles, totalResults } = resp.data;
-      const totalPages = Math.ceil(totalResults / 20);
+      const totalPages = Math.ceil(totalResults / pageSize);
 
       return { articles, totalPages };
     } catch (error) {
@@ -54,11 +56,18 @@ const storiesSlice = createSlice({
   name: "stories",
   initialState,
   reducers: {
-    updateQuryparameter: (state, action) => {
+    setQuery: (state, action) => {
       state.query = action.payload;
     },
+
     updatePage: (state, action) => {
       state.page = action.payload;
+    },
+    nextPage: (state) => {
+      state.page = state.page + 1;
+    },
+    prevPage: (state) => {
+      state.page = state.page - 1;
     },
   },
 
@@ -70,7 +79,7 @@ const storiesSlice = createSlice({
       .addCase(getStories.fulfilled, (state, action) => {
         state.isLoading = false;
         state.StoriesItems = action.payload;
-        state.totalResults = action.payload.totalPages;
+        state.totalPages = action.payload.totalPages;
       })
       .addCase(getStories.rejected, (state, action) => {
         state.isLoading = false;
@@ -90,6 +99,7 @@ const storiesSlice = createSlice({
   },
 });
 
-export const { updateQuryparameter, updatePage } = storiesSlice.actions;
+export const { setQuery, updatePage, prevPage, nextPage } =
+  storiesSlice.actions;
 
 export default storiesSlice.reducer;

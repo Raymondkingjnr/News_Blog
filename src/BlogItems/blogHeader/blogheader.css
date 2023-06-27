@@ -1,0 +1,43 @@
+.articles-header {
+  width: 100%;
+  margin: 2rem auto 0 auto;
+  padding-left: 2.5rem;
+  background: #02006c;
+  color: #fff;
+}
+.articles-header h2 {
+  font-family: "roboto";
+  font-size: 25px;
+  padding-top: 10rem;
+}
+.articles-header p {
+  font-family: "inter";
+  padding-top: 2rem;
+  font-size: 18px;
+  padding-bottom: 5rem;
+}
+.articles-form {
+  display: flex;
+}
+.search-icon {
+  background: #151448;
+  margin-bottom: 2rem;
+  padding: 10px;
+  margin-right: 2px;
+}
+.form-icon {
+  font-size: 25px;
+  font-weight: 700;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+}
+.articles-form input {
+  width: 500px;
+  padding: 10px;
+  margin-bottom: 2rem;
+  outline: none;
+}
+.articles-form input::placeholder {
+  font-family: "roboto";
+  font-size: 17px;
+}

@@ -5,32 +5,29 @@ import { Nav, Footer } from "./componnets";
 import { useEffect } from "react";
 import {
   getStories,
-  updateQuryparameter,
+  setQuery,
   updatePage,
   HeadLines,
 } from "./features/stories/storiesSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 function App() {
-  const { StoriesItems, topNews } = useSelector((story) => story.stories);
+  const { page, query, pageSize } = useSelector((story) => story.stories);
 
   const dispatch = useDispatch();
 
-  useEffect(() => {}, [StoriesItems]);
-  useEffect(() => {}, [topNews]);
-
   useEffect(() => {
-    dispatch(updateQuryparameter("bitcoin"));
-  });
-
-  useEffect(() => {
-    dispatch(updatePage(2));
-  });
-
-  useEffect(() => {
-    dispatch(getStories());
-    dispatch(HeadLines());
+    dispatch(setQuery());
   }, []);
+
+  useEffect(() => {
+    dispatch(updatePage(page));
+  }, []);
+
+  useEffect(() => {
+    dispatch(getStories({ query, page, pageSize }));
+    dispatch(HeadLines());
+  }, [query, page, pageSize]);
 
   return (
     <Router>

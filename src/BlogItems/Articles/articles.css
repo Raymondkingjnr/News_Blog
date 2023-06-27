@@ -1,0 +1,71 @@
+.main {
+  padding-top: 6rem;
+}
+.main h1 {
+  font-family: "roboto";
+  font-size: 35px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  font-weight: 900;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+}
+.articles {
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  gap: 3rem;
+  max-width: 1300px;
+  margin: auto;
+}
+.article_line {
+  width: 100px;
+  height: 5px;
+  padding-top: 0;
+  background: #010048;
+  margin-top: 0;
+}
+.article img {
+  width: 400px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.article-note {
+  width: 400px;
+}
+.article-note h4 {
+  font-family: "roboto";
+  font-size: 18px;
+  line-height: 2rem;
+  color: #010048;
+  font-weight: 600;
+}
+.article-note p {
+  padding-top: 2rem;
+  font-family: "inter";
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 2rem;
+  padding-bottom: 5rem;
+  color: #03002e;
+}
+.article {
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+}
+.article a {
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  background: #010048;
+  padding: 8px;
+  font-family: "roboto";
+  font-size: 18px;
+  letter-spacing: 0.02rem;
+  border-radius: 5px;
+  width: 150px;
+  left: 0;
+}
