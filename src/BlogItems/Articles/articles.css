@@ -1,5 +1,6 @@
 .main {
   padding-top: 6rem;
+  overflow-x: hidden;
 }
 .main h1 {
   font-family: "roboto";
@@ -53,7 +54,6 @@
 .article {
   display: flex;
   flex-direction: column;
-
   position: relative;
 }
 .article a {
@@ -68,4 +68,73 @@
   border-radius: 5px;
   width: 150px;
   left: 0;
+}
+
+@media screen and (max-width: 900px) {
+  .articles {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    width: 100%;
+  }
+  .article {
+    position: relative;
+  }
+  .article-note {
+    width: 550px;
+  }
+  .article img {
+    width: 550px;
+    height: 500px;
+  }
+  .article-note p {
+    padding-bottom: 4rem;
+    line-height: 1.5rem;
+    padding-top: 1rem;
+  }
+
+  .article a {
+    left: 14%;
+    position: absolute;
+    width: 120px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .main h1 {
+    font-size: 17px;
+  }
+  .article_line {
+    width: 60px;
+  }
+  .article img {
+    width: 300px;
+    height: 300px;
+  }
+  .article-note {
+    width: 300px;
+  }
+  .article-note h4 {
+    font-size: 16px;
+  }
+  .article-note p {
+    font-size: 12px;
+  }
+  .article a {
+    left: 7%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .article img {
+    width: 250px;
+    height: 250px;
+  }
+  .article-note {
+    width: 250px;
+  }
+  .article a {
+    left: 6%;
+    width: 100px;
+  }
 }

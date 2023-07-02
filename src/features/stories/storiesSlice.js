@@ -20,7 +20,7 @@ export const getStories = createAsyncThunk(
 
     try {
       const resp = await axios.get(
-        `https://newsapi.org/v2/everything?q=${query}&page=${page}&pageSize=${pageSize}&apiKey=aa15640c4b6149b4a67fc925aee56b21`
+        `https://newsapi.org/v2/everything?q=${query}&language=en&page=${page}&pageSize=${pageSize}&apiKey=aa15640c4b6149b4a67fc925aee56b21`
       );
       const { articles, totalResults } = resp.data;
       const totalPages = Math.ceil(totalResults / pageSize);
@@ -65,9 +65,18 @@ const storiesSlice = createSlice({
     },
     nextPage: (state) => {
       state.page = state.page + 1;
+      if (state.page > state.totalPages - 1) {
+        state.page = 1;
+        return state.page;
+      }
     },
     prevPage: (state) => {
       state.page = state.page - 1;
+      if (state.page < 1) {
+        state.page = state.totalPages - 1;
+
+        return state.page;
+      }
     },
   },
 

@@ -13,7 +13,7 @@ function SearchForm() {
 
   const handleSearchInput = () => {
     dispatch(updatePage(1));
-    dispatch(getStories({ query, page }));
+    dispatch(getStories({ query, page: 1 }));
   };
 
   const handleQueryChange = (event) => {

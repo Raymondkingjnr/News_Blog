@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Home, About, Blog } from "./pages";
+import { Home, About, Blog, Error } from "./pages";
 import { Nav, Footer } from "./componnets";
 import { useEffect } from "react";
 import {

@@ -1,6 +1,6 @@
 .articles-header {
   width: 100%;
-  margin: 2rem auto 0 auto;
+  /* margin: 2rem auto 0 auto; */
   padding-left: 2.5rem;
   background: #02006c;
   color: #fff;
@@ -15,9 +15,12 @@
   padding-top: 2rem;
   font-size: 18px;
   padding-bottom: 5rem;
+  width: 550px;
+  line-height: 2rem;
 }
 .articles-form {
   display: flex;
+  flex-direction: row;
 }
 .search-icon {
   background: #151448;
@@ -40,4 +43,34 @@
 .articles-form input::placeholder {
   font-family: "roboto";
   font-size: 17px;
+}
+
+@media screen and (max-width: 600px) {
+  .articles-form input {
+    width: 300px;
+  }
+  .search-icon {
+    margin-right: 2rem;
+  }
+  .articles-header p {
+    width: 300px;
+    font-size: 13px;
+    padding-bottom: 2rem;
+  }
+  .articles-header h2 {
+    font-size: 18px;
+    padding-top: 6rem;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .articles-header p {
+    width: 270px;
+  }
+  .articles-form input {
+    padding: 7px;
+  }
+  .search-icon {
+    padding: 7px;
+  }
 }
