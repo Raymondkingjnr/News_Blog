@@ -20,43 +20,48 @@ function AboutUs() {
   ];
   return (
     <Wrapper>
-      <main>
-        <h4>
-          Our Vision
-          <div className="line"></div>
-        </h4>
-        <p>
-          In today's information-driven world, the thirst for knowledge is
-          unquenchable. It is in this era of constant connectivity and
-          ever-evolving information that "Daily Info" emerges, a blog website
-          with a resolute vision to become the beacon of credible and
-          enlightening content. Daily Info seeks to be the go-to Dlatform,
-          enriching lives through its diverse range of articles and empowering
-          users with valuable insights on various topics. Let us delve into the
-          profound vision that propels this blog website forward.
-        </p>
-        <div className="about-links">
-          {socialsLink.map((social, index) => {
-            return (
-              <ul className="socials-link" index={` ${social.id} ${index}`}>
-                {social.icon}
-              </ul>
-            );
-          })}
-        </div>
-      </main>
-      <img src={aboutusImg} alt="aboutus" />
+      <div className="menu">
+        <main>
+          <h4>
+            Our Vision
+            <div className="line"></div>
+          </h4>
+          <p>
+            In today's information-driven world, the thirst for knowledge is
+            unquenchable. It is in this era of constant connectivity and
+            ever-evolving information that "Daily Info" emerges, a blog website
+            with a resolute vision to become the beacon of credible and
+            enlightening content. Daily Info seeks to be the go-to Dlatform,
+            enriching lives through its diverse range of articles and empowering
+            users with valuable insights on various topics. Let us delve into
+            the profound vision that propels this blog website forward.
+          </p>
+          <div className="about-links">
+            {socialsLink.map((social, index) => {
+              return (
+                <ul className="socials-link" index={` ${social.id} ${index}`}>
+                  {social.icon}
+                </ul>
+              );
+            })}
+          </div>
+        </main>
+        <img src={aboutusImg} alt="aboutus" />
+      </div>
     </Wrapper>
   );
 }
 
 const Wrapper = styled.section`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 2rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  .menu {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
 
   .about-links {
     display: flex;
@@ -101,6 +106,29 @@ const Wrapper = styled.section`
     line-height: 2rem;
     font-family: "Roboto";
   }
-`;
 
+  @media (max-width: 900px) {
+    .menu {
+      flex-direction: column;
+    }
+  }
+  @media (max-width: 600px) {
+    h4 {
+      font-size: 14px;
+    }
+    p {
+      font-size: 10px;
+    }
+    img {
+      width: 300px;
+      height: 300px;
+    }
+    main {
+      width: 300px;
+    }
+    .line {
+      margin-left: 0.9rem;
+    }
+  }
+`;
 export default AboutUs;
