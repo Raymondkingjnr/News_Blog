@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Home, About, Blog, Error, ContentPage } from "./pages";
+import { Home, About, Blog, Error } from "./pages";
 import { Nav, Footer } from "./componnets";
 import { useEffect } from "react";
 import {
@@ -36,7 +36,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="blog" element={<Blog />} />
-        <Route path="/item/id" element={<ContentPage />} />
+
         <Route path="*" element={<Error />} />
       </Routes>
       <Footer />

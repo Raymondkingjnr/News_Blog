@@ -5,7 +5,6 @@ const initialState = {
   StoriesItems: [],
   topNews: [],
   isLoading: true,
-  selectedContent: null,
   query: "",
   page: 1,
   pageSize: 9,
@@ -31,11 +30,6 @@ export const getStories = createAsyncThunk(
       return thunkAPI.rejectWithValue("Something went wrong");
     }
   }
-);
-
-export const getStoryContent = createAsyncThunk(
-  "story/ getStoryContent",
-  async (_, thunkAPI) => {}
 );
 
 export const HeadLines = createAsyncThunk(
@@ -84,9 +78,6 @@ const storiesSlice = createSlice({
         return state.page;
       }
     },
-    selectContent: (state, action) => {
-      state.selectedContent = action.payload;
-    },
   },
 
   extraReducers: (builder) => {
@@ -117,7 +108,7 @@ const storiesSlice = createSlice({
   },
 });
 
-export const { setQuery, updatePage, prevPage, nextPage, selectContent } =
+export const { setQuery, updatePage, prevPage, nextPage } =
   storiesSlice.actions;
 
 export default storiesSlice.reducer;
