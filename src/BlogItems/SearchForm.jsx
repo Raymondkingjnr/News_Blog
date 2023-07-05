@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import {
   setQuery,
@@ -11,20 +11,22 @@ function SearchForm() {
   const dispatch = useDispatch();
   const { query } = useSelector((story) => story.stories);
 
+  const [inputValue, setInputValue] = useState(query);
+
   const handleSearchInput = () => {
     dispatch(updatePage(1));
-    dispatch(getStories({ query, page: 1 }));
+    dispatch(getStories({ query, inputValue, page: 1 }));
   };
 
   const handleQueryChange = (event) => {
+    setInputValue(event.target.value);
     dispatch(setQuery(event.target.value));
-    dispatch({ page: 1 });
   };
   return (
-    <form className="articles-form" onSubmit={(e) => e.preventDefault()}>
+    <form className="articles-form">
       <input
         type="text"
-        value={query}
+        value={inputValue}
         placeholder="search"
         onChange={handleQueryChange}
       />

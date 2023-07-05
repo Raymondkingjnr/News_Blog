@@ -35,10 +35,6 @@ export const getStories = createAsyncThunk(
 export const HeadLines = createAsyncThunk(
   "topnews/ Headlines",
   async (_, thunkAPI) => {
-    const { getState } = thunkAPI;
-
-    console.log(getState);
-
     try {
       const resp = await axios.get(
         "https://newsapi.org/v2/top-headlines?country=us&apiKey=aa15640c4b6149b4a67fc925aee56b21"
