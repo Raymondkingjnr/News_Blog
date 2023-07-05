@@ -1,8 +1,8 @@
 .hero-sec {
   width: 100%;
-  /* margin: 3rem auto; */
-  border-radius: 10px;
   position: relative;
+  display: flex;
+  gap: 20px;
   overflow-x: hidden;
   overflow-y: hidden;
 }
@@ -20,7 +20,9 @@
   letter-spacing: 0.03rem;
   height: 6rem;
 }
-
+.hero-item {
+  margin-top: 0.5rem;
+}
 .hero-item img {
   width: 100%;
   object-fit: cover;

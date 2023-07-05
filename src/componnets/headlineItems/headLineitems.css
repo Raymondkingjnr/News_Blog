@@ -1,12 +1,15 @@
 .headline-content {
   display: flex;
   flex-direction: column;
+  box-shadow: 1px 0px 50px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
 .headline-content img {
   height: 100%;
   object-fit: cover;
-  border-radius: 10px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 }
 
 .headline-content h4 {
@@ -17,13 +20,15 @@
   font-size: 20px;
   font-weight: 600;
   padding-top: 2rem;
+  padding-left: 1rem;
 }
 .headline-content p {
   text-align: left;
   font-family: "inter";
   line-height: 1.5rem;
   font-size: 15px;
-
+  color: #03002e;
+  padding-left: 1rem;
   font-weight: 800;
 }
 
@@ -32,7 +37,9 @@
   width: 100px;
   border-radius: 5px;
   padding: 5px;
-  background: #e99801;
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+  background: #03002e;
   text-align: center;
 }
 a {

@@ -18,7 +18,7 @@
   border-radius: 10px;
   font-family: "inter";
   margin-top: 6rem;
-  background: #ffa500;
+  background: #03002e;
 }
 .blog-btn {
   color: #fff;
@@ -34,7 +34,6 @@
   display: grid;
   margin: 5rem auto;
   max-width: 1400px;
-
   padding-left: 2rem;
   padding-top: 2rem;
   grid-template-columns: repeat(3, 1fr);

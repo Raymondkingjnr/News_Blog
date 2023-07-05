@@ -16,8 +16,7 @@
 .footer-newsletter h2 {
   font-family: "inter";
   font-weight: 900;
-  font-size: 40px;
-  padding-top: 2rem;
+  font-size: 25px;
   text-align: left;
   color: #fff;
   letter-spacing: 0.1rem;
@@ -25,7 +24,7 @@
 }
 .footer_form {
   margin-bottom: 2rem;
-  padding-top: 3rem;
+  /* padding-top: 3rem; */
 }
 .footer_form input {
   width: 500px;
@@ -63,7 +62,7 @@ article {
   display: flex;
   flex-direction: row;
   gap: 6rem;
-  padding-top: 3rem;
+  /* padding-top: 3rem; */
 }
 .logo-footer {
   width: 500px;
@@ -96,8 +95,9 @@ article {
 }
 .icons {
   background: #0d0852;
-  padding: 10px;
+  padding: 6px;
   border-radius: 10px;
+  font-size: 15px;
   cursor: pointer;
 }
 
