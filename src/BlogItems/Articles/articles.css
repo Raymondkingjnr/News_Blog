@@ -4,7 +4,7 @@
 }
 .main h1 {
   font-family: "roboto";
-  font-size: 35px;
+  font-size: 20px;
   font-weight: 900;
   letter-spacing: 0.2rem;
   text-transform: uppercase;
@@ -17,11 +17,11 @@
   margin: auto;
 }
 .article_line {
-  width: 100px;
-  height: 5px;
-  padding-top: 0;
+  width: 50px;
+  height: 2px;
+  margin-left: 2rem;
   background: #010048;
-  margin-top: 0;
+  margin-top: 4px;
 }
 .article img {
   width: 100%;
@@ -120,6 +120,9 @@
     width: 60px;
     padding: 4px;
     font-size: 9px;
+  }
+  .article_line {
+    margin-left: 1.3rem;
   }
 }
 

@@ -26,7 +26,7 @@ function SearchForm() {
     <form className="articles-form">
       <input
         type="text"
-        value={inputValue}
+        value={inputValue || ""}
         placeholder="search"
         onChange={handleQueryChange}
       />

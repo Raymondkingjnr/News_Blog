@@ -39,7 +39,7 @@ function AboutUs() {
           <div className="about-links">
             {socialsLink.map((social, index) => {
               return (
-                <ul className="socials-link" index={` ${social.id} ${index}`}>
+                <ul className="socials-link" key={` ${social.id} ${index}`}>
                   {social.icon}
                 </ul>
               );

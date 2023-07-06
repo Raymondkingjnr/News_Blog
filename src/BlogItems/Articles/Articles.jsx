@@ -14,8 +14,10 @@ function Articles() {
   }
   return (
     <main className="main">
-      <h1>Articles</h1>
-      <div className="article_line"></div>
+      <h1>
+        Articles
+        <div className="article_line"></div>
+      </h1>
       <div className="articles">
         {articles?.map((news, index) => {
           const { title, url, urlToImage, publishedAt, description, source } =
@@ -26,9 +28,8 @@ function Articles() {
 
           return (
             <main key={`${index} ${id}`} className="article">
-              <img src={urlToImage ? urlToImage : blogImage} alt={title} />
+              <img src={urlToImage ? urlToImage : blogImage} alt="" />
 
-              {/* <p className="date">Published On : {date}</p> */}
               <h4>{title}</h4>
               <p>{description?.substring(0, 100)}...</p>
 
