@@ -5,25 +5,33 @@ const initialState = {
   StoriesItems: [],
   topNews: [],
   isLoading: true,
-  query: "",
+  query: "bitcoin",
   page: 1,
+  topic: "",
   pageSize: 9,
   totalPages: 0,
   error: "",
 };
 
+// `https://newsapi.org/v2/everything?q=${query}&language=en&page=${page}&pageSize=${pageSize}&apiKey=aa15640c4b6149b4a67fc925aee56b21`
+
 export const getStories = createAsyncThunk(
   "stories/ getstories",
   async (_, thunkAPI) => {
     const { getState } = thunkAPI;
-    const { page, query, pageSize } = getState().stories;
+    const { page, query, pageSize, topic } = getState().stories;
 
     try {
       const resp = await axios.get(
-        `https://newsapi.org/v2/everything?q=${query}&language=en&page=${page}&pageSize=${pageSize}&apiKey=aa15640c4b6149b4a67fc925aee56b21`
+        `https://api.newscatcherapi.com/v2/search?q=${query}&lang=en&page=${page}&page_size=${pageSize}&topic=${topic}`,
+        {
+          headers: {
+            "x-api-key": "YUJhCDVDDU894ZD2HnbViCVOsLdUm5MoRdo1SOJV5M8",
+          },
+        }
       );
-      const { articles, totalResults } = resp.data;
-      const totalPages = Math.ceil(totalResults / pageSize);
+      const { articles, total_pages } = resp.data;
+      const totalPages = Math.ceil(total_pages / pageSize);
 
       return { articles, totalPages };
     } catch (error) {
@@ -37,8 +45,12 @@ export const HeadLines = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const resp = await axios.get(
-        `https://newsapi.org/v2/top-headlines?country=us&apiKey=aa15640c4b6149b4a67fc925aee56b21
-        }`
+        `https://api.newscatcherapi.com/v2/search?q=topnews&lang=en`,
+        {
+          headers: {
+            "x-api-key": "YUJhCDVDDU894ZD2HnbViCVOsLdUm5MoRdo1SOJV5M8",
+          },
+        }
       );
       const { articles } = resp.data;
 

@@ -23,11 +23,11 @@ function Hero() {
   return (
     <Slider {...settings} className="hero-sec">
       {heroSlice?.map((item, index) => {
-        const { title, urlToImage, url } = item;
+        const { title, media, link } = item;
         return (
-          <a href={url} target="_blank" rel="noopener noreferrer" key={index}>
+          <a href={link} target="_blank" rel="noopener noreferrer" key={index}>
             <div className="hero-item">
-              <img src={urlToImage} alt={urlToImage} />
+              <img src={media} alt={media} />
               <h5>{title}</h5>
             </div>
           </a>

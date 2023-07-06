@@ -20,20 +20,19 @@ function Articles() {
       </h1>
       <div className="articles">
         {articles?.map((news, index) => {
-          const { title, url, urlToImage, publishedAt, description, source } =
-            news;
-          const id = source.id;
+          const { title, link, media, publishedAt, excerpt, source } = news;
 
           const date = moment(publishedAt).format("MM Do YYYY");
 
           return (
-            <main key={`${index} ${id}`} className="article">
-              <img src={urlToImage ? urlToImage : blogImage} alt="" />
+            <main key={`${index}`} className="article">
+              <img src={media ? media : blogImage} alt="" />
 
               <h4>{title}</h4>
-              <p>{description?.substring(0, 100)}...</p>
+              {/* <p>{description?.substring(0, 100)}...</p> */}
+              <p>{excerpt}</p>
 
-              <a href={url} target="_blank" rel="noopener noreferrer">
+              <a href={link} target="_blank" rel="noopener noreferrer">
                 details
               </a>
             </main>
