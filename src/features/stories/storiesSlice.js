@@ -20,9 +20,7 @@ export const getStories = createAsyncThunk(
 
     try {
       const resp = await axios.get(
-        `https://newsapi.org/v2/everything?q=${query}&language=en&page=${page}&pageSize=${pageSize}&apiKey=${
-          import.meta.env.VITE_API_KEY
-        }`
+        `https://newsapi.org/v2/everything?q=${query}&language=en&page=${page}&pageSize=${pageSize}&apiKey=aa15640c4b6149b4a67fc925aee56b21`
       );
       const { articles, totalResults } = resp.data;
       const totalPages = Math.ceil(totalResults / pageSize);
@@ -39,8 +37,7 @@ export const HeadLines = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const resp = await axios.get(
-        `https://newsapi.org/v2/top-headlines?country=us&apiKey=${
-          import.meta.env.VITE_API_KEY
+        `https://newsapi.org/v2/top-headlines?country=us&apiKey=aa15640c4b6149b4a67fc925aee56b21
         }`
       );
       const { articles } = resp.data;
